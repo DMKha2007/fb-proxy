@@ -29,7 +29,7 @@ app.use('/', createProxyMiddleware({
       proxyReq.write(bodyData);
     }
     proxyReq.setHeader('referer', 'https://m.facebook.com/');
-  }
+  },
   onProxyRes: (proxyRes, req, res) => {
     delete proxyRes.headers['content-security-policy'];
     delete proxyRes.headers['x-frame-options'];
