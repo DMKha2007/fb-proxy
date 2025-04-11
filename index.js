@@ -27,9 +27,9 @@ app.use('/', createProxyMiddleware({
       const bodyData = new URLSearchParams(req.body).toString();
       proxyReq.setHeader('Content-Length', Buffer.byteLength(bodyData));
       proxyReq.write(bodyData);
-  }
+    }
     proxyReq.setHeader('referer', 'https://m.facebook.com/');
-}
+  }
   onProxyRes: (proxyRes, req, res) => {
     delete proxyRes.headers['content-security-policy'];
     delete proxyRes.headers['x-frame-options'];
